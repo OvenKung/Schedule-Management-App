@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Schedule_Management.Views.ManageEmployeeLeavePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:Schedule_Management.Models"
+    Title="Approve Leave Requests"
+    BackgroundColor="#e6f2ff">
+
+    <Grid Padding="16" RowDefinitions="Auto,*" RowSpacing="10">
+        <!-- Header -->
+        <Frame Grid.Row="0"
+               Padding="16"
+               Margin="0,5,0,15"
+               CornerRadius="15"
+               BackgroundColor="#f0f8ff"
+               BorderColor="Transparent"
+               HasShadow="True">
+            <VerticalStackLayout>
+                <Label Text="Employee Leave Requests"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="#2c5282"/>
+                <Label Text="Review and manage pending leave requests"
+                       FontSize="14"
+                       HorizontalOptions="Center"
+                       TextColor="#4a6fa5"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Pending Leave Requests List -->
+        <CollectionView Grid.Row="1"
+                        x:Name="PendingLeaveList"
+                        ItemsSource="{Binding PendingLeaves}"
+                        SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:ScheduleCard">
+                    <Frame Margin="0,8"
+                           Padding="16"
+                           CornerRadius="12"
+                           BackgroundColor="#f0f8ff"
+                           BorderColor="Transparent"
+                           HasShadow="True">
+
+                        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                              RowSpacing="8">
+
+                            <!-- Date + status chip -->
+                            <Grid Row="0" ColumnDefinitions="*,Auto">
+                                <Label Text="{Binding DateText}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="#2c5282"/>
+                                <Frame Grid.Column="1"
+                                       Padding="8,3"
+                                       BackgroundColor="#e2eeff"
+                                       CornerRadius="8"
+                                       BorderColor="#b9d7ff"
+                                       HasShadow="False">
+                                    <Label Text="PENDING"
+                                           FontSize="12"
+                                           FontAttributes="Bold"
+                                           TextColor="#2c5282"/>
+                                </Frame>
+                            </Grid>
+
+                            <!-- Time -->
+                            <Grid Row="1" ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                                <Label Text="⏰" FontSize="16"/>
+                                <Label Grid.Column="1"
+                                       Text="{Binding TimeRange}"
+                                       FontSize="16"
+                                       TextColor="#4a6fa5"/>
+                            </Grid>
+
+                            <!-- Employee -->
+                            <Grid Row="2" ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                                <Label Text="👤" FontSize="16"/>
+                                <Label Grid.Column="1"
+                                       Text="{Binding Email}"
+                                       FontSize="16"
+                                       TextColor="#4a6fa5"/>
+                            </Grid>
+
+                            <!-- Reason -->
+                            <Grid Row="3" ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                                <Label Text="📝" FontSize="16"/>
+                                <Label Grid.Column="1"
+                                       Text="{Binding Reason, TargetNullValue='-', FallbackValue='-'}"
+                                       FontSize="15"
+                                       TextColor="#4a6fa5"
+                                       LineBreakMode="WordWrap"
+                                       Margin="0,0,0,8"/>
+                            </Grid>
+
+                            <!-- Action buttons -->
+                            <Grid Row="4" ColumnDefinitions="*,*" ColumnSpacing="12" Margin="0,6,0,0">
+                                <Button Text="APPROVE"
+                                        BackgroundColor="#5eb762"
+                                        TextColor="White"
+                                        CornerRadius="8"
+                                        FontAttributes="Bold"
+                                        HeightRequest="45"
+                                        Command="{Binding ApproveCommand}"/>
+                                <Button Grid.Column="1"
+                                        Text="REJECT"
+                                        BackgroundColor="#dc6169"
+                                        TextColor="White"
+                                        CornerRadius="8"
+                                        FontAttributes="Bold"
+                                        HeightRequest="45"
+                                        Command="{Binding RejectCommand}"/>
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <!-- Empty View -->
+            <CollectionView.EmptyView>
+                <VerticalStackLayout Padding="40"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Spacing="6">
+                    <Label Text="No Pending Leave Requests"
+                           FontSize="20"
+                           TextColor="#4a6fa5"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+                    <Label Text="All employee leave requests have been processed"
+                           FontSize="16"
+                           TextColor="#6b89b3"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+    </Grid>
+</ContentPage>

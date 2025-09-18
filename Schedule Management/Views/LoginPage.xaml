@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Schedule_Management.Views.LoginPage"
+             BackgroundColor="#e6f2ff">
+    
+    <Grid RowDefinitions="Auto,*,Auto" Padding="25" RowSpacing="20">
+        <!-- ส่วนหัว -->
+        <VerticalStackLayout Grid.Row="0" Spacing="10" Margin="0,40,0,0">
+            <Image Source="app_logo.png" HeightRequest="80" WidthRequest="80" 
+                   HorizontalOptions="Center" IsVisible="False"/>
+            <Label Text="WELCOME" 
+                   FontSize="22" 
+                   FontAttributes="Bold" 
+                   TextColor="#2c5282"
+                   HorizontalOptions="Center"/>
+            <Label Text="Sign in to continue" 
+                   FontSize="16" 
+                   TextColor="#4a6fa5"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,20"/>
+        </VerticalStackLayout>
+        
+        <!-- ส่วนฟอร์ม -->
+        <VerticalStackLayout Grid.Row="1" Spacing="20" VerticalOptions="Center">
+            <!-- ช่องกรอกอีเมล -->
+            <Frame BorderColor="Transparent" 
+                   BackgroundColor="#f0f8ff" 
+                   CornerRadius="10" 
+                   HasShadow="True"
+                   Padding="15,5">
+                <VerticalStackLayout>
+                    <Label Text="Email" FontSize="14" TextColor="#4a6fa5"/>
+                    <Entry x:Name="EmailEntry" 
+                           Placeholder="Enter your email" 
+                           PlaceholderColor="#b9d7ff"
+                           Keyboard="Email" 
+                           FontSize="16"
+                           TextColor="#2c5282"/>
+                </VerticalStackLayout>
+            </Frame>
+            
+            <!-- ช่องกรอกรหัสผ่าน -->
+            <Frame BorderColor="Transparent" 
+                   BackgroundColor="#f0f8ff" 
+                   CornerRadius="10" 
+                   HasShadow="True"
+                   Padding="15,5">
+                <VerticalStackLayout>
+                    <Label Text="Password" FontSize="14" TextColor="#4a6fa5"/>
+                    <Entry x:Name="PasswordEntry" 
+                           Placeholder="Enter your password" 
+                           PlaceholderColor="#b9d7ff"
+                           IsPassword="True" 
+                           FontSize="16"
+                           TextColor="#2c5282"/>
+                </VerticalStackLayout>
+            </Frame>
+            
+            <!-- ปุ่มเข้าสู่ระบบ -->
+            <Button Text="SIGN IN" 
+                    Clicked="OnLoginClicked"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    BackgroundColor="#5588c7"
+                    CornerRadius="10"
+                    Margin="0,20,0,0"
+                    HeightRequest="50"/>
+        </VerticalStackLayout>
+        
+        <!-- ส่วนล่าง -->
+        <VerticalStackLayout Grid.Row="2" Spacing="20">
+            <Label Text="Don't have an account?" 
+                   TextColor="#4a6fa5"
+                   HorizontalOptions="Center"/>
+            
+            <Button Text="CREATE ACCOUNT" 
+                    Clicked="OnRegisterButtonClicked"
+                    TextColor="#5588c7"
+                    FontAttributes="Bold"
+                    BackgroundColor="#e2eeff"
+                    BorderColor="#b9d7ff"
+                    BorderWidth="1"
+                    CornerRadius="10"
+                    HeightRequest="50"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

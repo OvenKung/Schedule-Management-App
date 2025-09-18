@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Schedule_Management.Views.UsersListPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:Schedule_Management.Models"
+    Title="All Users"
+    BackgroundColor="#e6f2ff">
+
+    <CollectionView
+        Margin="16"
+        ItemsSource="{Binding Users}"
+        SelectionMode="None">
+
+        <!--  CARD TEMPLATE  -->
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="models:UserInfo">
+                <SwipeView Margin="0,6">
+                    <SwipeView.RightItems>
+                        <SwipeItems Mode="Reveal">
+                            <!--  EDIT  -->
+                            <SwipeItem
+                                BackgroundColor="#5eb762"
+                                CommandParameter="{Binding Email}"
+                                Invoked="OnEditUser"
+                                Text="Edit" />   
+
+                            <!--  DELETE  -->
+                            <SwipeItem
+                                BackgroundColor="#dc6169"
+                                CommandParameter="{Binding Email}"
+                                Invoked="OnDeleteUser"
+                                Text="Delete" />   
+                        </SwipeItems>
+                    </SwipeView.RightItems>
+
+                    <!--  Card  -->
+                    <Frame
+                        Padding="12"
+                        BackgroundColor="#f0f8ff"
+                        CornerRadius="12"
+                        HasShadow="True">
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
+
+                            <!--  Avatar  -->
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="#e2eeff"
+                                BorderColor="#78a1d7"
+                                CornerRadius="24"
+                                HeightRequest="48"
+                                IsClippedToBounds="True"
+                                WidthRequest="48">
+                                <Image
+                                    Aspect="AspectFill"
+                                    HeightRequest="48"
+                                    HorizontalOptions="Fill"
+                                    VerticalOptions="Fill"
+                                    WidthRequest="48">
+                                    <Image.Source>
+                                        <Binding
+                                            FallbackValue="profile_placeholder.png"
+                                            Path="ImageUrl"
+                                            TargetNullValue="profile_placeholder.png" />
+                                    </Image.Source>
+                                </Image>
+                            </Frame>
+
+                            <!--  Info  -->
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                Spacing="2"
+                                VerticalOptions="Center">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    Text="{Binding Fullname}"
+                                    TextColor="#2c5282" />
+                                <Label
+                                    FontSize="14"
+                                    Text="{Binding Email}"
+                                    TextColor="#4a6fa5" />
+                                <Label
+                                    FontAttributes="Italic"
+                                    FontSize="13"
+                                    Text="{Binding Role}"
+                                    TextColor="#5588c7" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+                </SwipeView>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+        <!--  EMPTY  -->
+        <CollectionView.EmptyView>
+            <VerticalStackLayout
+                Padding="40"
+                HorizontalOptions="Center"
+                Spacing="10">
+                <Image Source="empty.png" WidthRequest="120" />
+                <Label
+                    FontSize="18"
+                    Text="No users found"
+                    TextColor="#4a6fa5" />
+            </VerticalStackLayout>
+        </CollectionView.EmptyView>
+    </CollectionView>
+</ContentPage>

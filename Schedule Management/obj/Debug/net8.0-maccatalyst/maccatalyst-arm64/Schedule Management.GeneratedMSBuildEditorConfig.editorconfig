@@ -1,0 +1,119 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0-maccatalyst
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Schedule_Management
+build_property.ProjectDir = /Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Colors.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Styles.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/Views/ChagepasswordPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.Views.ChagepasswordPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/ChagepasswordPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/ChagepasswordPage.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/Views/CheckInQrPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.Views.CheckInQrPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/CheckInQrPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/CheckInQrPage.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/Views/EditUserPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.Views.EditUserPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/EditUserPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/EditUserPage.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/Views/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.Views.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LoginPage.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/Views/ManageEmployeeLeavePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.Views.ManageEmployeeLeavePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/ManageEmployeeLeavePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/ManageEmployeeLeavePage.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/Views/ManageScheduleEmployeePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.Views.ManageScheduleEmployeePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/ManageScheduleEmployeePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/ManageScheduleEmployeePage.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/Views/MySchedulePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.Views.MySchedulePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/MySchedulePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/MySchedulePage.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/Views/ProfilePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.Views.ProfilePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/ProfilePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/ProfilePage.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/Views/RegisterPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.Views.RegisterPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/RegisterPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/RegisterPage.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/Views/ScanQrCode.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.Views.ScanQrCode.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/ScanQrCode.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/ScanQrCode.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/Views/TodayAttendancePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.Views.TodayAttendancePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/TodayAttendancePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/TodayAttendancePage.xaml
+
+[/Users/ovenkung/Desktop/Project/CS356/Final_Project/Schedule Management/Views/UsersListPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Schedule_Management.Views.UsersListPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/UsersListPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/UsersListPage.xaml

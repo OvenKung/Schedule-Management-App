@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Schedule_Management.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Schedule_Management.Views"
+    Title="Schedule_Management"
+    Shell.FlyoutBehavior="Disabled">
+
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate views:LoginPage}"
+        Route="LoginPage" />
+
+    <ShellContent
+        Title="Register"
+        ContentTemplate="{DataTemplate views:RegisterPage}"
+        Route="RegisterPage" />
+
+    <ShellContent
+        Title="Profile"
+        ContentTemplate="{DataTemplate views:ProfilePage}"
+        Route="ProfilePage" />
+
+    <ShellContent
+        Title="My Schedule"
+        ContentTemplate="{DataTemplate views:MySchedulePage}"
+        Route="MySchedulePage" />
+
+    <ShellContent
+        Title="Change Password"
+        ContentTemplate="{DataTemplate views:ChagepasswordPage}"
+        Route="ChagepasswordPage" />
+
+    <ShellContent
+        Title="Manage Employee Schedule"
+        ContentTemplate="{DataTemplate views:ManageScheduleEmployeePage}"
+        Route="ManageEmployeeSchedulePage" />
+
+    <ShellContent
+        Title="Manage Leave Employee Schedule"
+        ContentTemplate="{DataTemplate views:ManageEmployeeLeavePage}"
+        Route="ManageEmployeeLeavePage" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate views:CheckInQrPage}"
+        Route="CheckInQrPage" />
+
+    <ShellContent Title="Scan QR"
+        ContentTemplate="{DataTemplate views:ScanQrPage}"
+        Route="ScanQrPage" />
+
+    <ShellContent
+        Title="Today Attendance"
+        ContentTemplate="{DataTemplate views:TodayAttendancePage}"
+        Route="TodayAttendancePage" />
+    
+    <ShellContent
+        Title="All Users"
+        ContentTemplate="{DataTemplate views:UsersListPage}"
+        Route="UsersListPage" />
+
+    <ShellContent
+        Title="Edit User"
+        ContentTemplate="{DataTemplate views:EditUserPage}"
+        Route="EditUserPage" />
+</Shell>

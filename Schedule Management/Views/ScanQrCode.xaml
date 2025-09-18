@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui"
+             x:Class="Schedule_Management.Views.ScanQrPage"
+             Title="QR Code Scanner"
+             BackgroundColor="#e6f2ff">
+
+    <Grid RowDefinitions="Auto,*,Auto" Padding="20" RowSpacing="20">
+        <!-- Header Section -->
+        <Frame Grid.Row="0" 
+               BackgroundColor="#f0f8ff" 
+               CornerRadius="15" 
+               Padding="16" 
+               HasShadow="True" 
+               Margin="0,10,0,0">
+            <VerticalStackLayout>
+                <Label Text="Scan QR Code" 
+                       FontSize="22" 
+                       FontAttributes="Bold" 
+                       TextColor="#2c5282"
+                       HorizontalOptions="Center"/>
+                <Label Text="Position QR code within the frame" 
+                       FontSize="14" 
+                       TextColor="#4a6fa5"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+        
+        <!-- Camera Scanner Section -->
+        <Frame Grid.Row="1" 
+               CornerRadius="15"
+               Padding="0" 
+               BorderColor="#78a1d7"
+               HasShadow="True"
+               BackgroundColor="Black"
+               Margin="0,10">
+            <Grid>
+                <zxing:CameraBarcodeReaderView 
+                    x:Name="cameraView"
+                    BarcodesDetected="OnBarcodesDetected"
+                    IsDetecting="True"
+                    IsTorchOn="False" />
+            </Grid>
+        </Frame>
+        
+        <!-- Result Section -->
+        <Frame Grid.Row="2" 
+               BackgroundColor="#f0f8ff" 
+               CornerRadius="15" 
+               Padding="16" 
+               HasShadow="True"
+               Margin="0,0,0,10">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Scan Result" 
+                       FontSize="16" 
+                       FontAttributes="Bold" 
+                       TextColor="#2c5282"
+                       HorizontalOptions="Center"/>
+                <Label x:Name="ResultLabel" 
+                       Text="Waiting for scan..." 
+                       TextColor="#4a6fa5"
+                       FontSize="14"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+                
+                <!-- Scan Status Indicator -->
+                <Frame HorizontalOptions="Center" 
+                       BackgroundColor="#e2eeff" 
+                       Padding="10,5" 
+                       CornerRadius="20" 
+                       BorderColor="#b9d7ff"
+                       Margin="0,5,0,0">
+                    <Label Text="Ready to scan" 
+                           TextColor="#2c5282" 
+                           FontSize="12"
+                           FontAttributes="Bold" />
+                </Frame>
+            </VerticalStackLayout>
+        </Frame>
+        
+        <!-- Flash Button (Optional) -->
+        <Button Grid.Row="1"
+                Text="Toggle Flash"
+                BackgroundColor="#5588c7"
+                TextColor="White"
+                Opacity="0.8"
+                CornerRadius="25"
+                HeightRequest="50"
+                WidthRequest="50"
+                FontFamily="MaterialIcons"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                Margin="0,0,10,10"
+                Clicked="OnToggleFlashClicked"/>
+    </Grid>
+</ContentPage>

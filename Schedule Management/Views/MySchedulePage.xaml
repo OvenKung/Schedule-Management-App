@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Schedule_Management.Views.MySchedulePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:Schedule_Management.Models"
+    Title="My Schedule"
+    BackgroundColor="#e6f2ff">
+
+    <Grid Padding="16" RowDefinitions="Auto,*">
+
+        <!--  ─────────────  Header  ─────────────  -->
+        <Frame
+            Grid.Row="0"
+            Margin="0,5,0,15"
+            Padding="16"
+            BackgroundColor="#f0f8ff"
+            BorderColor="Transparent"
+            CornerRadius="15"
+            HasShadow="True">
+            <VerticalStackLayout>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="22"
+                    HorizontalOptions="Center"
+                    Text="My Schedule"
+                    TextColor="#2c5282" />
+
+                <Label
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="Swipe cards left to see available actions"
+                    TextColor="#4a6fa5" />
+            </VerticalStackLayout>
+        </Frame>
+
+        <!--  ─────────────  Cards  ─────────────  -->
+        <CollectionView
+            Grid.Row="1"
+            ItemsSource="{Binding ScheduleCards}"
+            SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:ScheduleCard">
+
+                    <SwipeView Margin="0,8" IsEnabled="{Binding IsLeave, Converter={StaticResource InverseBoolConverter}}">
+
+                        <!--  ─── Swipe actions ───  -->
+                        <SwipeView.RightItems>
+                            <SwipeItem
+                                BackgroundColor="#5588c7"
+                                Command="{Binding CheckInCommand}"
+                                IsVisible="{Binding IsWork}"
+                                Text="Check-In" />
+
+                            <SwipeItem
+                                BackgroundColor="#78a1d7"
+                                Command="{Binding RequestLeaveCommand}"
+                                IsVisible="{Binding IsWork}"
+                                Text="Request Leave" />
+
+                            <SwipeItem
+                                BackgroundColor="#a3bedf"
+                                Command="{Binding CancelLeaveCommand}"
+                                IsVisible="{Binding IsPending}"
+                                Text="Cancel" />
+                        </SwipeView.RightItems>
+
+                        <!--  ─── Card ───  -->
+                        <Frame
+                            Padding="16"
+                            BackgroundColor="#f0f8ff"
+                            BorderColor="Transparent"
+                            CornerRadius="14"
+                            HasShadow="True">
+
+                            <Grid ColumnDefinitions="8,*" ColumnSpacing="16">
+
+                                <!--  status bar  -->
+                                <BoxView
+                                    Grid.Column="0"
+                                    CornerRadius="4"
+                                    HeightRequest="50"
+                                    VerticalOptions="Center"
+                                    WidthRequest="8"
+                                    Color="{Binding StatusColor}" />
+
+                                <!--  details  -->
+                                <VerticalStackLayout Grid.Column="1" Spacing="6">
+
+                                    <!--  date  -->
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="18"
+                                        LineBreakMode="TailTruncation"
+                                        MaxLines="1"
+                                        Text="{Binding DateText}"
+                                        TextColor="#2c5282" />
+
+                                    <!--  time  -->
+                                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                                        <Label
+                                            FontSize="14"
+                                            Text="⏰"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            Grid.Column="1"
+                                            FontSize="15"
+                                            Text="{Binding TimeRange}"
+                                            TextColor="#4a6fa5"
+                                            VerticalOptions="Center" />
+                                    </Grid>
+
+                                    <!--  status  -->
+                                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                                        <Label
+                                            FontSize="14"
+                                            Text="📋"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            Grid.Column="1"
+                                            FontSize="14"
+                                            Text="{Binding Status, StringFormat='Status: {0}'}"
+                                            TextColor="#4a6fa5"
+                                            VerticalOptions="Center" />
+                                    </Grid>
+
+                                    <!--  leave reason  -->
+                                    <Grid
+                                        x:Name="ReasonGrid"
+                                        ColumnDefinitions="Auto,*"
+                                        ColumnSpacing="8">
+                                        <Label
+                                            FontSize="14"
+                                            Text="📝"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            Grid.Column="1"
+                                            FontSize="13"
+                                            Text="{Binding Reason}"
+                                            TextColor="#6b89b3"
+                                            VerticalOptions="Center" />
+                                        <!--  visibility rules for ReasonGrid  -->
+                                        <Grid.Triggers>
+                                            <!--  hide when Reason is blank  -->
+                                            <DataTrigger
+                                                Binding="{Binding Reason}"
+                                                TargetType="Grid"
+                                                Value="">
+                                                <Setter Property="IsVisible" Value="False" />
+                                            </DataTrigger>
+
+                                            <!--  hide when Status = work  -->
+                                            <DataTrigger
+                                                Binding="{Binding Status}"
+                                                TargetType="Grid"
+                                                Value="work">
+                                                <Setter Property="IsVisible" Value="False" />
+                                            </DataTrigger>
+
+                                            <!--  default: visible (for pending / leave with reason)  -->
+                                        </Grid.Triggers>
+                                    </Grid>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <!--  empty view  -->
+            <CollectionView.EmptyView>
+                <VerticalStackLayout
+                    HorizontalOptions="Center"
+                    Spacing="20"
+                    VerticalOptions="Center">
+                    <Label
+                        FontSize="20"
+                        Text="No schedules found"
+                        TextColor="#4a6fa5" />
+                    <Label
+                        FontSize="16"
+                        Text="Your upcoming work days will appear here"
+                        TextColor="#6b89b3" />
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+
+        </CollectionView>
+    </Grid>
+</ContentPage>

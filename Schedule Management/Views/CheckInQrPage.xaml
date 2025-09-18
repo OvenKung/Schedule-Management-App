@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Schedule_Management.Views.CheckInQrPage"
+    Title="Check In QR Code"
+    BackgroundColor="#e6f2ff">
+    
+    <Grid RowDefinitions="Auto,*,Auto" Padding="20">
+        <!-- Header Section -->
+        <Frame Grid.Row="0" 
+               BackgroundColor="#f0f8ff" 
+               CornerRadius="15" 
+               Padding="20" 
+               HasShadow="True" 
+               Margin="0,20,0,30">
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Employee Check-In" 
+                       FontSize="24" 
+                       FontAttributes="Bold" 
+                       TextColor="#2c5282" 
+                       HorizontalOptions="Center"/>
+                <Label Text="Scan this QR code with your device" 
+                       FontSize="16" 
+                       TextColor="#4a6fa5" 
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+        
+        <!-- QR Code Section -->
+        <Frame Grid.Row="1" 
+               BackgroundColor="#f0f8ff" 
+               BorderColor="#78a1d7" 
+               CornerRadius="15" 
+               Padding="20" 
+               HasShadow="True"
+               VerticalOptions="Center"
+               HorizontalOptions="Center">
+            <VerticalStackLayout Spacing="20" Padding="10">
+                <Image x:Name="QrImage" 
+                       WidthRequest="250" 
+                       HeightRequest="250" 
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                
+                <Label Text="Present this code to your manager" 
+                       FontSize="14" 
+                       TextColor="#4a6fa5" 
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+        
+        <!-- Instructions Section -->
+        <Frame Grid.Row="2" 
+               BackgroundColor="#e2eeff" 
+               CornerRadius="15" 
+               Padding="15" 
+               BorderColor="#b9d7ff"
+               HasShadow="False"
+               Margin="0,30,0,10">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="How to check in:" 
+                       FontSize="16" 
+                       FontAttributes="Bold" 
+                       TextColor="#2c5282"/>
+                <Label Text="1. Make sure you are at your workplace" 
+                       FontSize="14" 
+                       TextColor="#4a6fa5"/>
+                <Label Text="2. Show this QR code to the manager or scanner" 
+                       FontSize="14" 
+                       TextColor="#4a6fa5"/>
+                <Label Text="3. Wait for confirmation of successful check-in" 
+                       FontSize="14" 
+                       TextColor="#4a6fa5"/>
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>

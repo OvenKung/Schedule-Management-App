@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Schedule_Management.Views.TodayAttendancePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:Schedule_Management.Models"
+    Title="Today Attendance"
+    BackgroundColor="#e6f2ff">
+
+    <!--  คอลเลกชันแบบ Grouped  -->
+    <Grid Padding="16" RowDefinitions="Auto,*">
+        <!--  Header  -->
+        <Frame
+            Grid.Row="0"
+            Margin="0,5,0,15"
+            Padding="16"
+            BackgroundColor="#f0f8ff"
+            CornerRadius="15"
+            HasShadow="True">
+            <Label
+                FontAttributes="Bold"
+                FontSize="22"
+                HorizontalOptions="Center"
+                Text="Today's Attendance"
+                TextColor="#2c5282" />
+        </Frame>
+
+        <CollectionView
+            Grid.Row="1"
+            IsGrouped="True"
+            ItemsSource="{Binding GroupedRecords}">
+            <!--  Header = ชื่อสถานะ (On time, Late, …)  -->
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <Frame
+                        Margin="0,10,0,5"
+                        Padding="12,8"
+                        BackgroundColor="#5588c7"
+                        CornerRadius="10"
+                        HasShadow="True">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <!--  Status Name  -->
+                            <Label
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontSize="16"
+                                Text="{Binding Key}"
+                                TextColor="White"
+                                VerticalOptions="Center" />
+
+                            <!--  Count Badge  -->
+                            <Frame
+                                Grid.Column="1"
+                                Padding="8,3"
+                                BackgroundColor="#e2eeff"
+                                CornerRadius="15"
+                                HasShadow="False">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="12"
+                                    Text="{Binding CountWithLabel}"
+                                    TextColor="#2c5282" />
+                            </Frame>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+
+            <!--  รายการพนักงานในกลุ่มนั้น  -->
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:AttendanceRecord">
+                    <Frame
+                        Margin="5,3"
+                        Padding="12,10"
+                        BackgroundColor="#f0f8ff"
+                        BorderColor="Transparent"
+                        CornerRadius="10"
+                        HasShadow="True">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                            <!--  Avatar Image  -->
+                            <!--  Avatar Image (40×40, กลม)  -->
+                            <Frame
+                                Grid.Column="0"
+                                Padding="0"
+                                BackgroundColor="#e2eeff"
+                                BorderColor="#78a1d7"
+                                CornerRadius="20"
+                                HeightRequest="40"
+                                IsClippedToBounds="True"
+                                WidthRequest="40">
+                                <Image Aspect="AspectFill">
+                                    <Image.Source>
+                                        <Binding
+                                            FallbackValue="profile_placeholder.png"
+                                            Path="ImageUrl"
+                                            TargetNullValue="profile_placeholder.png" />
+                                    </Image.Source>
+                                </Image>
+                            </Frame>
+
+                            <!--  Email  -->
+                            <Label
+                                Grid.Column="1"
+                                FontSize="16"
+                                Text="{Binding Email}"
+                                TextColor="#2c5282"
+                                VerticalOptions="Center" />
+
+                            <!--  Time Range  -->
+                            <Frame
+                                Grid.Column="2"
+                                Padding="8,5"
+                                BackgroundColor="#e2eeff"
+                                BorderColor="#b9d7ff"
+                                CornerRadius="6">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="10"
+                                    Text="{Binding TimeRange}"
+                                    TextColor="#4a6fa5" />
+                            </Frame>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <!--  Empty View  -->
+            <CollectionView.EmptyView>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="No attendance records today"
+                        TextColor="#4a6fa5" />
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+    </Grid>
+</ContentPage>

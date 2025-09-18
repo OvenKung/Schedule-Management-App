@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Schedule_Management.Views.ProfilePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="My Profile"
+    BackgroundColor="#e6f2ff">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <!--  Profile Header  -->
+            <Frame
+                Margin="0,10,0,10"
+                Padding="20"
+                BackgroundColor="#f0f8ff"
+                CornerRadius="15"
+                HasShadow="True">
+                <Grid
+                    ColumnDefinitions="Auto,*"
+                    RowDefinitions="Auto,Auto"
+                    RowSpacing="8">
+                    <!--  Profile Avatar Circle  -->
+                    <Frame
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Padding="0"
+                        BackgroundColor="#d4f1f9"
+                        BorderColor="#6ca0dc"
+                        CornerRadius="35"
+                        HeightRequest="70"
+                        HorizontalOptions="Center"
+                        IsClippedToBounds="True"
+                        VerticalOptions="Center"
+                        WidthRequest="70">
+                        <Image
+                            x:Name="AvatarImage"
+                            Aspect="AspectFill"
+                            HeightRequest="70"
+                            WidthRequest="70" />
+                    </Frame>
+
+                    <!--  User Info  -->
+                    <VerticalStackLayout
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="15,0,0,0">
+                        <Label
+                            x:Name="FullNameLabel"
+                            FontAttributes="Bold"
+                            FontSize="22"
+                            TextColor="#2c5282" />
+                        <Label
+                            x:Name="RoleLabel"
+                            FontSize="16"
+                            TextColor="#4a6fa5" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!--  Main Menu  -->
+            <Frame
+                Padding="15"
+                BackgroundColor="#f0f8ff"
+                CornerRadius="15"
+                HasShadow="True">
+                <VerticalStackLayout Spacing="15">
+                    <Label
+                        Margin="0,0,0,10"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        Text="Quick Actions"
+                        TextColor="#2c5282" />
+
+                    <!--  My Schedule Button  -->
+                    <Button
+                        Padding="15,10"
+                        BackgroundColor="#e2eeff"
+                        BorderColor="#b9d7ff"
+                        BorderWidth="1"
+                        Clicked="OnMyScheduleClicked"
+                        ContentLayout="Left,15"
+                        CornerRadius="10"
+                        FontSize="16"
+                        HorizontalOptions="Fill"
+                        Text="My Schedule"
+                        TextColor="#2c5282" />
+
+                    <!--  Change Password Button  -->
+                    <Button
+                        Padding="15,10"
+                        BackgroundColor="#e2eeff"
+                        BorderColor="#b9d7ff"
+                        BorderWidth="1"
+                        Clicked="OnChangePasswordClicked"
+                        ContentLayout="Left,15"
+                        CornerRadius="10"
+                        FontSize="16"
+                        HorizontalOptions="Fill"
+                        Text="Change Password"
+                        TextColor="#2c5282" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!--  Admin Panel  -->
+            <Frame
+                x:Name="AdminPanel"
+                Padding="15"
+                BackgroundColor="#f0f8ff"
+                CornerRadius="15"
+                HasShadow="True"
+                IsVisible="False">
+                <VerticalStackLayout Spacing="15">
+                    <Label
+                        Margin="0,0,0,10"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        Text="Admin Actions"
+                        TextColor="#2c5282" />
+
+                    <!--  Manage Employee Schedule  -->
+                    <Button
+                        Padding="15,10"
+                        BackgroundColor="#e2eeff"
+                        BorderColor="#b9d7ff"
+                        BorderWidth="1"
+                        Clicked="OnManageEmployeeScheduleClicked"
+                        CornerRadius="10"
+                        FontSize="16"
+                        HorizontalOptions="Fill"
+                        Text="Manage Employee Schedule"
+                        TextColor="#2c5282" />
+
+                    <!--  Manage Employee Leave  -->
+                    <Button
+                        Padding="15,10"
+                        BackgroundColor="#e2eeff"
+                        BorderColor="#b9d7ff"
+                        BorderWidth="1"
+                        Clicked="OnManageEmployeeLeaveClicked"
+                        CornerRadius="10"
+                        FontSize="16"
+                        HorizontalOptions="Fill"
+                        Text="Manage Employee Leave"
+                        TextColor="#2c5282" />
+
+                    <!--  Check-In Employee  -->
+                    <Button
+                        Padding="15,10"
+                        BackgroundColor="#e2eeff"
+                        BorderColor="#b9d7ff"
+                        BorderWidth="1"
+                        Clicked="OnCheckInEmployeeClicked"
+                        CornerRadius="10"
+                        FontSize="16"
+                        HorizontalOptions="Fill"
+                        Text="Check-In Employee Time"
+                        TextColor="#2c5282" />
+
+                    <!--  Today Attendance Records  -->
+                    <Button
+                        Padding="15,10"
+                        BackgroundColor="#e2eeff"
+                        BorderColor="#b9d7ff"
+                        BorderWidth="1"
+                        Clicked="OnTodayAttendanceClicked"
+                        CornerRadius="10"
+                        FontSize="16"
+                        HorizontalOptions="Fill"
+                        Text="Today Attendance Records"
+                        TextColor="#2c5282" />
+
+                    <!--  All Users List  -->
+                    <Button
+                        Padding="15,10"
+                        BackgroundColor="#e2eeff"
+                        BorderColor="#b9d7ff"
+                        BorderWidth="1"
+                        Clicked="OnAllUsersClicked"
+                        CornerRadius="10"
+                        FontSize="16"
+                        HorizontalOptions="Fill"
+                        Text="Employee List"
+                        TextColor="#2c5282" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!--  Logout Button  -->
+            <Button
+                Margin="0,20,0,20"
+                BackgroundColor="#5588c7"
+                Clicked="OnLogoutClicked"
+                CornerRadius="10"
+                FontAttributes="Bold"
+                FontSize="16"
+                HeightRequest="50"
+                Text="LOGOUT"
+                TextColor="White" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Schedule_Management.Views.EditUserPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Edit User"
+    BackgroundColor="#e6f2ff">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="18">
+
+            <!-- HEADER -->
+            <Frame BackgroundColor="#f0f8ff"
+                   Padding="20"
+                   CornerRadius="16"
+                   HasShadow="True">
+                <Label Text="Edit User"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="#2c5282"/>
+            </Frame>
+
+            <!-- EMAIL (read‑only) -->
+            <Frame BackgroundColor="#f0f8ff"
+                   Padding="15,8"
+                   CornerRadius="12"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="3">
+                    <Label Text="Email (read‑only)"
+                           FontSize="13"
+                           TextColor="#4a6fa5"/>
+                    <Entry x:Name="EmailEntry"
+                           IsReadOnly="True"
+                           TextColor="#2c5282"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- FULLNAME -->
+            <Frame BackgroundColor="#f0f8ff"
+                   Padding="15,8"
+                   CornerRadius="12"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="3">
+                    <Label Text="Full name"
+                           FontSize="13"
+                           TextColor="#4a6fa5"/>
+                    <Entry x:Name="FullnameEntry"
+                           Placeholder="Full name"
+                           PlaceholderColor="#b9d7ff"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- ROLE -->
+            <Frame BackgroundColor="#f0f8ff"
+                   Padding="15,8"
+                   CornerRadius="12"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="3">
+                    <Label Text="Role"
+                           FontSize="13"
+                           TextColor="#4a6fa5"/>
+                    <Picker x:Name="RolePicker"
+                            TextColor="#2c5282">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>user</x:String>
+                                <x:String>admin</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- IMAGE URL -->
+            <Frame BackgroundColor="#f0f8ff"
+                   Padding="15,8"
+                   CornerRadius="12"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="3">
+                    <Label Text="Image URL"
+                           FontSize="13"
+                           TextColor="#4a6fa5"/>
+                    <Entry x:Name="ImageUrlEntry"
+                           Placeholder="https://…/avatar.jpg"
+                           PlaceholderColor="#b9d7ff"
+                           TextColor="#2c5282"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- PASSWORD -->
+            <Frame BackgroundColor="#f0f8ff"
+                   Padding="15,8"
+                   CornerRadius="12"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="3">
+                    <Label Text="New password (leave blank = no change)"
+                           FontSize="13"
+                           TextColor="#4a6fa5"/>
+                    <Entry x:Name="PasswordEntry"
+                           Placeholder="New password"
+                           IsPassword="True"
+                           PlaceholderColor="#b9d7ff"
+                           TextColor="#2c5282"/>
+                    <Entry x:Name="ConfirmPasswordEntry"
+                           Placeholder="Confirm password"
+                           IsPassword="True"
+                           PlaceholderColor="#b9d7ff"
+                           TextColor="#2c5282"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- ERROR TEXT -->
+            <Label x:Name="ErrorLabel"
+                   TextColor="#dc3545"
+                   IsVisible="False"/>
+
+            <!-- SAVE BUTTON -->
+            <Button Text="SAVE"
+                    HeightRequest="50"
+                    CornerRadius="12"
+                    BackgroundColor="#5588c7"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Clicked="OnSaveClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
